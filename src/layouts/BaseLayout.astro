@@ -1,4 +1,5 @@
 ---
+import Header from '../components/Header.astro';
 import '../styles/global.css';
 
 const { title } = Astro.props;
@@ -13,7 +14,33 @@ const { title } = Astro.props;
     <title>{title} | FjordBoost</title>
   </head>
   <body class='flex flex-col min-h-screen'>
-    <header></header>
+    <Header
+      logo={{
+        link: '/images/logo/logo_no-slogan_transparent.png',
+        alt: 'fjordboost',
+      }}
+      navLinks={[
+        {
+          link: '/',
+          label: 'home',
+        },
+        {
+          link: '/services',
+          label: 'services',
+        },
+        {
+          link: '/about',
+          label: 'about',
+        },
+      ]}
+      navCTAs={[
+        {
+          link: '/contact-us',
+          label: 'contact-us',
+        },
+      ]}
+      styles={{ menuJustify: 'justify-end gap-6' }}
+    />
     <main class='flex-grow'>
       <slot />
     </main>

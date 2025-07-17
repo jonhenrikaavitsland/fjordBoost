@@ -1,0 +1,237 @@
+---
+interface Logo {
+  link: string;
+  alt: string;
+  title?: string;
+}
+
+interface NavLinks {
+  link: string;
+  label: string;
+}
+
+interface NavCTAs {
+  link: string;
+  label: string;
+}
+
+interface Styles {
+  menuJustify: string;
+}
+
+interface Locales {
+  lang: string;
+  link: string;
+}
+
+const { logo, navLinks, navCTAs, themeSwitch, locales, styles } =
+  Astro.props as {
+    logo: Logo;
+    navLinks: NavLinks[];
+    navCTAs: NavCTAs[];
+    themeSwitch: any;
+    locales: Locales[];
+    styles: Styles;
+  };
+---
+
+<header class='flex flex-col relative'>
+  <!-- 
+    Utility bar:
+    - Contains theme switcher and/or locale selector
+    - Rendered above the main logo/nav row
+  -->
+  <!-- IMPORTANT!!! Give the locales select a default value of the current locale! -->
+  {
+    (themeSwitch || (locales && locales.length > 0)) && (
+      <div class='bg-gray-100'>
+        <div class='flex justify-end gap-6 text-sm xl:container xl:mx-auto py-2 px-5'>
+          {themeSwitch && (
+            <button class='cursor-pointer'>
+              <img
+                src='/assets/icons/dark_mode.svg'
+                alt='dark mode'
+              />
+              <span class='sr-only'>toggle theme</span>
+            </button>
+          )}
+          {locales && locales.length > 0 && (
+            <div class='flex items-center gap-2'>
+              <img
+                src='/assets/icons/language.svg'
+                alt='Select language'
+              />
+              <select
+                class='border rounded p-1 text-sm cursor-pointer'
+                onchange='if(this.value) window.location.href=this.value'
+              >
+                {locales.map((locale) => (
+                  <option value={locale.link}>{locale.lang}</option>
+                ))}
+              </select>
+            </div>
+          )}
+        </div>
+      </div>
+    )
+  }
+
+  <div
+    class='flex justify-between flex-wrap md:flex-nowrap md:justify-normal px-5 pb-5 xl:container xl:mx-auto'
+  >
+    <div class='me-5 md:me-20'>
+      <!-- 
+        Logo link: 
+        - Links to homepage 
+        - Displays logo image and optional title if provided 
+      -->
+      <a
+        href='/'
+        class=`${logo?.title ? "flex items-center w-max" : ""}`
+      >
+        {
+          logo?.link && (
+            <img src={logo.link} alt={logo.alt} class='h-20' />
+          )
+        }
+        {
+          logo?.title && (
+            <span class='text-2xl font-bold font-serif capitalize'>
+              {logo.title}
+            </span>
+          )
+        }
+      </a>
+    </div>
+
+    <!-- 
+      Desktop navigation:
+      - Justify content as per styles.menuJustify (CMS-controlled)
+      - Fallback to gap-6 if CTAs exist and no justify style is set
+      - aria-label added for accessibility
+    -->
+    <nav
+      class=`hidden md:flex items-center w-full ${styles.menuJustify && styles.menuJustify !== "" ? styles.menuJustify : navCTAs && navCTAs.length > 0 ? "gap-6" : ""}`
+      aria-label='primary navigation'
+    >
+      <!-- 
+        Main nav links:
+        - Mapped from navLinks array
+        - Each link styled for hover underline effect 
+      -->
+      <ul class='flex gap-6 font-medium capitalize text-xl'>
+        {
+          navLinks?.map((navLink) => (
+            <li>
+              <a
+                href={navLink.link}
+                class='block py-2.5 leading-none hover:underline hover:underline-offset-4'
+              >
+                {navLink.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+
+      <!-- 
+        CTA links:
+        - Rendered only if navCTAs array has items
+        - Applies flex + gap only if multiple CTAs
+      -->
+      {
+        navCTAs && navCTAs.length > 0 && (
+          <ul class={navCTAs.length > 1 ? 'flex gap-6' : ''}>
+            {navCTAs?.map((cta) => (
+              <li>
+                <a
+                  href={cta.link}
+                  class='block py-2.5 px-5 leading-none bg-blue-600 text-white font-bold rounded-xl whitespace-nowrap'
+                >
+                  {cta.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        )
+      }
+    </nav>
+
+    <!-- Mobile menu toggle -->
+    <details class='flex my-auto md:hidden'>
+      <summary class='flex justify-end cursor-pointer p-1.25'>
+        <img
+          src='/assets/icons/menu-open.svg'
+          alt='Open menu'
+          class='open-icon'
+        />
+        <img
+          src='/assets/icons/menu-close.svg'
+          alt='Close menu'
+          class='close-icon hidden'
+        />
+      </summary>
+
+      <div
+        class='absolute left-0 right-0 top-full bg-white border-t mt-2 p-5 z-50'
+      >
+        <ul
+          class='flex flex-col gap-4 font-medium capitalize text-xl'
+        >
+          {
+            navLinks?.map((navLink) => (
+              <li>
+                <a
+                  href={navLink.link}
+                  class='block py-2.5 leading-none hover:underline hover:underline-offset-4'
+                >
+                  {navLink.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+        {
+          navCTAs && navCTAs.length > 0 && (
+            <ul class='flex flex-col gap-4 mt-4'>
+              {navCTAs.map((cta) => (
+                <li>
+                  <a
+                    href={cta.link}
+                    class='block py-2.5 px-5 leading-none bg-blue-600 text-white font-bold rounded-xl text-center whitespace-nowrap'
+                  >
+                    {cta.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          )
+        }
+      </div>
+    </details>
+  </div>
+</header>
+<style>
+  details[open] .open-icon {
+    display: none;
+  }
+
+  details[open] .close-icon {
+    display: inline;
+  }
+
+  details[open] > div {
+    animation: slideDown 0.2s ease-out;
+  }
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-0.25rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
