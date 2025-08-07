@@ -1,10 +1,12 @@
 ---
 import EmailCTA from '../components/EmailCTA.astro';
+import Hero from '../components/Hero.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const title = 'Home';
 ---
 
 <BaseLayout title={title}>
+  <Hero />
   <EmailCTA />
 </BaseLayout>
