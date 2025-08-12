@@ -6,4 +6,7 @@
   --color-accent: #8da9c4;
   --color-support: #13315c;
   --color-neutral: #eef4ed;
+  --breakpoint-sm: initial;
+  --breakpoint-xl: initial;
+  --breakpoint-2xl: initial;
 }
