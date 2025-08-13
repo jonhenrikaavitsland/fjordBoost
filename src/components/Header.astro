@@ -21,23 +21,20 @@ const navLinks = [
 
 <header class='flex flex-col relative'>
   <div
-    class='flex justify-between flex-wrap md:flex-nowrap md:justify-normal p-5 xl:container xl:mx-auto'
+    class='flex justify-between flex-wrap md:flex-nowrap md:justify-normal p-5 lg:container lg:mx-auto'
   >
-    <div class='flex items-end me-5 md:me-20'>
-      <img
-        src='/images/logo/logo_no-slogan_transparent.png'
-        alt='fjordboost company logo'
-        class='h-6'
-      />
+    <div
+      class='flex items-end me-5 md:me-20 text-xl font-bold text-secondary'
+    >
+      <span class='capitalize'>fjord</span>
+      <span class='capitalize'>boost</span>
     </div>
 
     <nav
       class='hidden md:flex justify-end items-center w-full'
       aria-label='primary navigation'
     >
-      <ul
-        class='flex gap-6 font-medium capitalize text-xl whitespace-nowrap'
-      >
+      <ul class='flex gap-6 capitalize whitespace-nowrap'>
         {
           navLinks?.map((navLink) => (
             <li>
@@ -50,6 +47,11 @@ const navLinks = [
             </li>
           ))
         }
+        <a
+          href='#contact'
+          class='capitalize bg-secondary text-white rounded-lg px-2 py-1'
+          >get started</a
+        >
       </ul>
     </nav>
 
@@ -69,7 +71,7 @@ const navLinks = [
       </summary>
 
       <div
-        class='absolute left-0 right-0 top-full bg-white border-t mt-2 p-5 z-50'
+        class='absolute left-0 right-0 top-full bg-white border-t p-5 z-50'
       >
         <ul
           class='flex text-center flex-col gap-4 font-medium capitalize text-xl'
@@ -86,6 +88,13 @@ const navLinks = [
               </li>
             ))
           }
+          <li>
+            <a
+              href='#contact'
+              class='capitalize bg-secondary text-white rounded-lg px-2 py-1'
+              >get started</a
+            >
+          </li>
         </ul>
       </div>
     </details>
