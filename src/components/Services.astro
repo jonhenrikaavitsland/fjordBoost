@@ -1,0 +1,71 @@
+---
+const services = [
+  {
+    icon: '/images/icons/research.svg',
+    title: 'Keyword Research & Strategy',
+    description:
+      'Comprehensive keyword analysis to identify high-value opportunities and create winning content strategies.',
+  },
+  {
+    icon: '/images/icons/optimisation.svg',
+    title: 'On-Page Optimization',
+    description:
+      'Technical SEO improvements, meta optimization, and content enhancement to boost your search visibility.',
+  },
+  {
+    icon: '/images/icons/analytics-and-reporting.svg',
+    title: 'Analytics & Reporting',
+    description:
+      'Detailed performance tracking with monthly reports showing your progress and ROI metrics.',
+  },
+  {
+    icon: '/images/icons/local-seo.svg',
+    title: 'Local SEO',
+    description:
+      'Dominate local search results with Google My Business optimization and location-based strategies.',
+  },
+  {
+    icon: '/images/icons/content-marketing.svg',
+    title: 'Content Marketing',
+    description:
+      'SEO-optimized content creation that engages your audience and drives organic traffic growth.',
+  },
+  {
+    icon: '/images/icons/technical-seo.svg',
+    title: 'Technical SEO',
+    description:
+      'Site speed optimization, mobile-first indexing, and technical improvements for better rankings.',
+  },
+];
+---
+
+<div class='bg-white text-secondary' id='services'>
+  <section
+    class='flex flex-col gap-10 lg:container lg:mx-auto px-5 py-20'
+  >
+    <div class='text-center'>
+      <h2 class='capitalize text-3xl md:text-4xl font-bold'>
+        our <span class='uppercase'>seo</span> services
+      </h2>
+      <p class='text-lg max-w-2xl mx-auto'>
+        Comprehensive <span class='uppercase'>seo</span> solutions tailored
+        to boost your online visibility and drive sustainable growth.
+      </p>
+    </div>
+    <div
+      class='grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 max-w-84 md:max-w-174 lg:max-w-264 mx-auto'
+    >
+      {
+        services.map((service) => (
+          <section class='flex flex-col gap-3 border rounded-lg border-accent hover:shadow-lg transition-shadow duration-300 p-5'>
+            <div class='w-12 h-12 bg-neutral rounded-lg flex items-center justify-center'>
+              <img src={service.icon} alt='' />
+            </div>
+            <h3 class='text-xl'>{service.title}</h3>
+            <p>{service.description}</p>
+          </section>
+        ))
+      }
+    </div>
+  </section>
+</div>
