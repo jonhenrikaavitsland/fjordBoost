@@ -74,24 +74,24 @@ const navLinks = [
         class='absolute left-0 right-0 top-full bg-white border-t p-5 z-50'
       >
         <ul
-          class='flex text-center flex-col gap-4 font-medium capitalize text-xl'
+          class='flex flex-col gap-4 font-medium capitalize text-xl'
         >
           {
             navLinks?.map((navLink) => (
               <li>
                 <a
                   href={navLink.link}
-                  class='block py-2.5 leading-none hover:underline hover:underline-offset-4'
+                  class='block px-2 py-2.5 leading-none hover:underline hover:underline-offset-4'
                 >
                   {navLink.label}
                 </a>
               </li>
             ))
           }
-          <li>
+          <li class='flex text-center'>
             <a
               href='#contact'
-              class='capitalize bg-secondary text-white rounded-lg px-2 py-1'
+              class='capitalize bg-secondary text-white rounded-lg px-2 py-1 w-full'
               >get started</a
             >
           </li>
