@@ -7,9 +7,36 @@ const logos = [
   'GlobalTech',
   'InnovateLab',
 ];
+
+const testimonials = [
+  {
+    name: 'Sarah Chen',
+    company: 'TechFlow Solutions',
+    role: 'Marketing Director',
+    content:
+      'FjordBoost transformed our online presence. We saw a 200% increase in organic traffic within 6 months and our conversion rates doubled.',
+    rating: 5,
+  },
+  {
+    name: 'Michael Rodriguez',
+    company: 'Nordic Retail',
+    role: 'CEO',
+    content:
+      'Their local SEO expertise helped us dominate our market. We now rank #1 for all our key local searches and our store visits increased by 85%.',
+    rating: 5,
+  },
+  {
+    name: 'Emma Thompson',
+    company: 'Creative Agency Co',
+    role: 'Founder',
+    content:
+      'The team at FjordBoost is incredibly knowledgeable and responsive. Their strategic approach to SEO has been a game-changer for our business.',
+    rating: 5,
+  },
+];
 ---
 
-<div class='bg-accent text-secondary'>
+<div class='bg-accent text-secondary' id='testimonials'>
   <section class='lg:container lg:mx-auto py-20 px-5'>
     <div class='text-center flex flex-col gap-4'>
       <h2 class='uppercase text-sm font-semibold text-secondary/40'>
@@ -25,7 +52,53 @@ const logos = [
         }
       </div>
     </div>
-    <div></div>
-    <div></div>
+    <div class='flex flex-col mt-20 text-center gap-1'>
+      <h2 class='capitalize text-3xl md:text-4xl font-bold'>
+        what our clients say
+      </h2>
+      <p class='text-lg max-w-2xl mx-auto text-secondary/60'>
+        Don't just take our word for it. Here's what business owners
+        say about working with FjordBoost.
+      </p>
+    </div>
+    <div class='grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-20'>
+      {
+        testimonials.map((testimonial) => (
+          <section class='bg-white p-5 rounded-lg border border-secondary/40 flex flex-col gap-1'>
+            <div class='flex'>
+              {Array.from({ length: testimonial.rating }).map(
+                (_) => (
+                  <img
+                    src='/images/icons/star.svg'
+                    alt='rating'
+                    class='h-4'
+                  />
+                )
+              )}
+            </div>
+            <div>
+              <img
+                src='images/icons/quotation.svg'
+                alt='quotation'
+                class='h-8'
+              />
+            </div>
+            <div class='flex flex-col gap-1.5'>
+              <p class='text-secondary/60 italic'>
+                &#8220;{testimonial.content}&#8221;
+              </p>
+              <div>
+                <span class='font-semibold'>
+                  {testimonial.name}
+                </span>
+                <p class='text-sm text-secondary/60'>
+                  {testimonial.role} at {testimonial.company}
+                </p>
+              </div>
+            </div>
+          </section>
+        ))
+      }
+    </div>
   </section>
 </div>
