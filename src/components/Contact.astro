@@ -1,5 +1,30 @@
 ---
-
+const contactInfo = [
+  {
+    icon: '/images/icons/mail.svg',
+    title: 'Email',
+    content: 'hello@fjordboost.com',
+    link: 'mailto:hello@fjordboost.com',
+  },
+  {
+    icon: '/images/icons/phone.svg',
+    title: 'Phone',
+    content: '+47 12345678',
+    link: 'tel:+4712345678',
+  },
+  {
+    icon: '/images/icons/location.svg',
+    title: 'Address',
+    content: 'SEO Street 123, 0001 Oslo, Norway',
+    link: '#',
+  },
+  {
+    icon: '/images/icons/clock.svg',
+    title: 'Business Hours',
+    content: 'Mon-Fri: 9AM-6PM CEST',
+    link: '#',
+  },
+];
 ---
 
 <div class='bg-white text-secondary'>
@@ -16,66 +41,101 @@
       </p>
     </div>
     <div class='grid md:grid-cols-2 gap-12'>
-      <form
-        class='flex flex-col gap-4 border border-accent/60 flex-grow-1 p-5 rounded-xl'
-      >
-        <p class='leading-none'>Send us a message</p>
-        <div class='flex flex-col md:flex-row gap-4'>
-          <div class='flex flex-col gap-2'>
-            <label for='name' class='text-sm font-semibold'
-              >Name *</label
-            >
-            <input
-              type='text'
-              id='name'
-              class='bg-accent/40 ps-2 py-1 pe-1 rounded-lg'
-              required
-            />
-          </div>
-          <div class='flex flex-col gap-2'>
-            <label for='email-contact' class='text-sm font-semibold'
-              >Email *</label
-            >
-            <input
-              type='text'
-              id='email-contact'
-              class='bg-accent/40 ps-2 py-1 pe-1 rounded-lg'
-              required
-            />
-          </div>
-        </div>
-        <div class='flex flex-col gap-2'>
-          <label for='company' class='text-sm font-semibold'
-            >Company</label
-          >
-          <input
-            type='text'
-            id='company'
-            class='bg-accent/40 ps-2 py-1 pe-1 rounded-lg'
-          />
-        </div>
-        <div class='flex flex-col gap-2'>
-          <label for='message' class='text-sm font-semibold'
-            >Message *</label
-          >
-          <textarea
-            name='message'
-            id='message'
-            rows={4}
-            class='bg-accent/40 p-2 rounded-lg'
-            placeholder='Tell us about your SEO goals and challenges...'
-            required></textarea>
-        </div>
-        <button
-          type='submit'
-          class='bg-secondary text-white w-full rounded-lg py-2 px-4'
-          >send message</button
+      <div class='flex-grow-1'>
+        <form
+          class='flex flex-col gap-4 border border-accent/60 p-5 rounded-xl'
         >
-      </form>
-      <section class='flex-grow-1'>
-        <h3 class='capitalize'>
-          get <span class='lowercase'>in</span> touch
-        </h3>
+          <p class='leading-none'>Send us a message</p>
+          <div class='flex flex-col lg:flex-row gap-4'>
+            <div class='flex flex-col gap-2'>
+              <label for='name' class='text-sm font-semibold'
+                >Name *</label
+              >
+              <input
+                type='text'
+                id='name'
+                class='bg-accent/40 ps-2 py-1 pe-1 rounded-lg'
+                required
+              />
+            </div>
+            <div class='flex flex-col gap-2'>
+              <label
+                for='email-contact'
+                class='text-sm font-semibold'>Email *</label
+              >
+              <input
+                type='text'
+                id='email-contact'
+                class='bg-accent/40 ps-2 py-1 pe-1 rounded-lg'
+                required
+              />
+            </div>
+          </div>
+          <div class='flex flex-col gap-2'>
+            <label for='company' class='text-sm font-semibold'
+              >Company</label
+            >
+            <input
+              type='text'
+              id='company'
+              class='bg-accent/40 ps-2 py-1 pe-1 rounded-lg'
+            />
+          </div>
+          <div class='flex flex-col gap-2'>
+            <label for='message' class='text-sm font-semibold'
+              >Message *</label
+            >
+            <textarea
+              name='message'
+              id='message'
+              rows={4}
+              class='bg-accent/40 p-2 rounded-lg'
+              placeholder='Tell us about your SEO goals and challenges...'
+              required></textarea>
+          </div>
+          <button
+            type='submit'
+            class='bg-secondary text-white w-full rounded-lg py-2 px-4 cursor-pointer'
+            >send message</button
+          >
+        </form>
+      </div>
+      <section class='flex flex-col gap-8 flex-grow-1'>
+        <div class='flex flex-col gap-4'>
+          <h3 class='capitalize text-xl font-semibold'>
+            get <span class='lowercase'>in</span> touch
+          </h3>
+          <p>
+            Have questions about our <span class='uppercase'
+              >seo</span
+            > services? We're here to help you achieve your digital marketing
+            goals.
+          </p>
+        </div>
+        <div class='flex flex-col gap-4'>
+          {
+            contactInfo.map((info) => (
+              <div class='flex border border-accent/60 p-6 items-center gap-4 rounded-lg hover:shadow-md transition-shadow'>
+                <div class='w-10 h-10 flex items-center justify-center rounded-lg bg-neutral'>
+                  <img src={info.icon} alt='' class='h-5 w-5' />
+                </div>
+                <div class='flex flex-col'>
+                  <h4 class='font-semibold'>{info.title}</h4>
+                  {info.link && info.link !== '#' ? (
+                    <a
+                      href={info.link}
+                      class='hover:text-blue-600 transition-colors'
+                    >
+                      {info.content}
+                    </a>
+                  ) : (
+                    <p>{info.content}</p>
+                  )}
+                </div>
+              </div>
+            ))
+          }
+        </div>
       </section>
     </div>
   </section>
