@@ -1,0 +1,82 @@
+---
+
+---
+
+<div class='bg-white text-secondary'>
+  <section
+    class='flex flex-col gap-16 lg:container lg:mx-auto py-20 px-5'
+  >
+    <div class='flex flex-col gap-4 text-center'>
+      <h2 class='capitalize text-3xl md:text-4xl font-bold'>
+        get your free <span class='uppercase'>seo</span> consultation
+      </h2>
+      <p class='text-lg max-w-2xl mx-auto'>
+        Ready to boost your search rankings? Let's discuss how we
+        can help grow your business online.
+      </p>
+    </div>
+    <div class='grid md:grid-cols-2 gap-12'>
+      <form
+        class='flex flex-col gap-4 border border-accent/60 flex-grow-1 p-5 rounded-xl'
+      >
+        <p class='leading-none'>Send us a message</p>
+        <div class='flex flex-col md:flex-row gap-4'>
+          <div class='flex flex-col gap-2'>
+            <label for='name' class='text-sm font-semibold'
+              >Name *</label
+            >
+            <input
+              type='text'
+              id='name'
+              class='bg-accent/40 ps-2 py-1 pe-1 rounded-lg'
+              required
+            />
+          </div>
+          <div class='flex flex-col gap-2'>
+            <label for='email-contact' class='text-sm font-semibold'
+              >Email *</label
+            >
+            <input
+              type='text'
+              id='email-contact'
+              class='bg-accent/40 ps-2 py-1 pe-1 rounded-lg'
+              required
+            />
+          </div>
+        </div>
+        <div class='flex flex-col gap-2'>
+          <label for='company' class='text-sm font-semibold'
+            >Company</label
+          >
+          <input
+            type='text'
+            id='company'
+            class='bg-accent/40 ps-2 py-1 pe-1 rounded-lg'
+          />
+        </div>
+        <div class='flex flex-col gap-2'>
+          <label for='message' class='text-sm font-semibold'
+            >Message *</label
+          >
+          <textarea
+            name='message'
+            id='message'
+            rows={4}
+            class='bg-accent/40 p-2 rounded-lg'
+            placeholder='Tell us about your SEO goals and challenges...'
+            required></textarea>
+        </div>
+        <button
+          type='submit'
+          class='bg-secondary text-white w-full rounded-lg py-2 px-4'
+          >send message</button
+        >
+      </form>
+      <section class='flex-grow-1'>
+        <h3 class='capitalize'>
+          get <span class='lowercase'>in</span> touch
+        </h3>
+      </section>
+    </div>
+  </section>
+</div>
