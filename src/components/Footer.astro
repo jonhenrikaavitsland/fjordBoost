@@ -43,4 +43,119 @@ const socialLinks = [
 ];
 ---
 
-<footer class='lg:container lg:mx-auto'>footer</footer>
+<footer class='bg-secondary text-white'>
+  <div
+    class='grid md:grid-cols-2 lg:grid-cols-4 gap-8 lg:container lg:mx-auto px-5 py-12'
+  >
+    <section class='flex flex-col gap-4'>
+      <h2 class='text-xl font-bold'>FjordBoost</h2>
+      <p class='text-accent/90'>
+        Empowering businesses to dominate search results with expert <span
+          class='uppercase'>seo</span
+        > strategies and proven results.
+      </p>
+      <ul class='flex gap-4 mt-2'>
+        {
+          socialLinks.map((link) => (
+            <li>
+              <a href={link.href} class='hover:animate-pulse'>
+                <span class='sr-only'>{link.label}</span>
+                <img
+                  src={link.icon}
+                  alt={link.label}
+                  class='h-5 w-5'
+                />
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+    <section class='flex flex-col gap-4'>
+      <h2 class='font-semibold capitalize'>services</h2>
+      <ul class='flex flex-col gap-2'>
+        {
+          footerLinks.services.map((footerLink) => (
+            <li>
+              <a
+                href={footerLink.href}
+                class='text-accent/90 hover:text-white transition-colors py-2 block'
+              >
+                {footerLink.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+    <section class='flex flex-col gap-4'>
+      <h2 class='font-semibold capitalize'>company</h2>
+      <ul class='flex flex-col gap-2'>
+        {
+          footerLinks.company.map((footerLink) => (
+            <li>
+              <a
+                href={footerLink.href}
+                class='text-accent/90 hover:text-white transition-colors py-2 block'
+              >
+                {footerLink.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+    <section class='flex flex-col gap-4'>
+      <h2 class='font-semibold capitalize'>resources</h2>
+      <ul class='flex flex-col gap-2'>
+        {
+          footerLinks.resources.map((footerLink) => (
+            <li>
+              <a
+                href={footerLink.href}
+                class='text-accent/90 hover:text-white transition-colors py-2 block'
+              >
+                {footerLink.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+    <div
+      class='col-span-full border-t border-accent/50 md:flex md:flex-row md:justify-between text-sm text-accent/90 mt-4 pt-8'
+    >
+      <div>
+        <p>© 2025 FjordBoost. All rights reserved.</p>
+      </div>
+      <div>
+        <ul class='flex flex-col md:flex-row gap-6 capitalize'>
+          <li>
+            <a
+              href='/privacy-policy'
+              target='_blank'
+              class='hover:text-white transition-colors'
+              >privacy policy</a
+            >
+          </li>
+          <li>
+            <a
+              href='/terms-of-service'
+              target='_blank'
+              class='hover:text-white transition-colors'
+              >terms <span class='lowercase'>of</span> service</a
+            >
+          </li>
+          <li>
+            <a
+              href='/cookie-policy'
+              target='_blank'
+              class='hover:text-white transition-colors'
+              >cookie policy</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
