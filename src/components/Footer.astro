@@ -60,11 +60,7 @@ const socialLinks = [
             <li>
               <a href={link.href} class='hover:animate-pulse'>
                 <span class='sr-only'>{link.label}</span>
-                <img
-                  src={link.icon}
-                  alt={link.label}
-                  class='h-5 w-5'
-                />
+                <img src={link.icon} alt='' class='h-5 w-5' />
               </a>
             </li>
           ))
@@ -125,7 +121,7 @@ const socialLinks = [
     <div
       class='col-span-full border-t border-accent/50 md:flex md:flex-row md:justify-between text-sm text-accent/90 mt-4 pt-8'
     >
-      <div>
+      <div class='flex items-center mb-8'>
         <p>© 2025 FjordBoost. All rights reserved.</p>
       </div>
       <div>
@@ -134,7 +130,7 @@ const socialLinks = [
             <a
               href='/privacy-policy'
               target='_blank'
-              class='hover:text-white transition-colors'
+              class='hover:text-white transition-colors py-2 block'
               >privacy policy</a
             >
           </li>
@@ -142,7 +138,7 @@ const socialLinks = [
             <a
               href='/terms-of-service'
               target='_blank'
-              class='hover:text-white transition-colors'
+              class='hover:text-white transition-colors py-2 block'
               >terms <span class='lowercase'>of</span> service</a
             >
           </li>
@@ -150,7 +146,7 @@ const socialLinks = [
             <a
               href='/cookie-policy'
               target='_blank'
-              class='hover:text-white transition-colors'
+              class='hover:text-white transition-colors py-2 block'
               >cookie policy</a
             >
           </li>
