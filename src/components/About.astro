@@ -1,0 +1,94 @@
+---
+const values = [
+  {
+    icon: '/images/icons/optimisation.svg',
+    alt: 'target',
+    title: 'Results-Driven',
+    description:
+      'Every strategy is designed to deliver measurable improvements in your search rankings and organic traffic.',
+  },
+  {
+    icon: '/images/icons/content-marketing.svg',
+    alt: 'two people',
+    title: 'Expert Team',
+    description:
+      'Our certified SEO specialists have years of experience helping businesses achieve their digital goals.',
+  },
+  {
+    icon: '/images/icons/trending-up.svg',
+    alt: 'arrow trending upwards',
+    title: 'Proven Methods',
+    description:
+      'We use data-backed techniques and stay current with the latest search engine algorithm updates.',
+  },
+  {
+    icon: '/images/icons/award.svg',
+    alt: 'medal',
+    title: 'Quality Focus',
+    description:
+      'We prioritize sustainable, white-hat SEO practices that build long-term success for your business.',
+  },
+];
+---
+
+<div class='bg-accent text-secondary' id='about'>
+  <section class='lg:container lg:mx-auto py-20 px-5 lg:px-0'>
+    <div class='grid lg:grid-cols-2 gap-12'>
+      <div class='flex flex-col gap-6'>
+        <h2 class='text-3xl md:text-4xl font-bold capitalize'>
+          about fjordBoost
+        </h2>
+        <p class='text-lg text-secondary/60'>
+          Founded by a team of passionate digital marketing experts,
+          FjordBoost was born from a simple belief: every business
+          deserves to be found online. We combine cutting-edge <span
+            class='uppercase'>seo</span
+          > with deep industry knowlegde to help companies of all sizes
+          dominate their local and global markets.
+        </p>
+        <p class='text-lg text-secondary/60'>
+          Our mission is to demystify <span class='uppercase'
+            >seo</span
+          > and deliver transparent, results-driven strategies that create
+          lasting impact. With over 500 successful projects and a track
+          record of increasing organic traffic by an average of 150%,
+          we're not just another <span class='uppercase'>seo</span> agency
+          - we're your growth partners.
+        </p>
+        <div class='grid md:grid-cols-2 gap-6 mt-2'>
+          {
+            values.map((value) => (
+              <div class='flex gap-3'>
+                <div class='w-8 h-8 rounded-lg bg-white flex items-center justify-center flex-shrink-0'>
+                  <img
+                    src={value.icon}
+                    alt={value.alt}
+                    class='w-4 h-4'
+                  />
+                </div>
+                <div class='flex flex-col gap-1'>
+                  <h3 class='font-semibold'>{value.title}</h3>
+                  <p class='text-sm text-secondary/60'>
+                    {value.description}
+                  </p>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+      <div class='flex flex-col gap-6 lg:order-first'>
+        <img
+          src='/public/images/assets/fjordBoost-team-collaborating-in-a-modern-office-environment.jpg'
+          alt='three people collaborate around a table with laptops'
+          class='rounded-xl w-full md:aspect-video md:object-cover lg:aspect-square lg:object-fill'
+        />
+        <p class='text-center text-sm text-secondary/60'>
+          Our expert team collaborating to deliver exceptional <span
+            class='uppercase'>seo</span
+          > results for our clients.
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
