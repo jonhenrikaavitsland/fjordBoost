@@ -15,7 +15,7 @@ const { title, description } = Astro.props;
     <title>{title} | FjordBoost</title>
     <meta name='description' content={description} />
   </head>
-  <body class='flex flex-col min-h-screen'>
+  <body class='flex flex-col min-h-screen scroll-smooth'>
     <Header />
     <main class='flex-grow'>
       <slot />
