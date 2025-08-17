@@ -8,9 +8,11 @@ import Services from '../components/Services.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const title = 'Home';
+const description =
+  'Expert SEO for startups, small businesses and scale-ups. Affordable sprints, technical audits & web optimisation. Based in Oslo.';
 ---
 
-<BaseLayout title={title}>
+<BaseLayout title={title} description={description}>
   <Hero />
   <Services />
   <About />
