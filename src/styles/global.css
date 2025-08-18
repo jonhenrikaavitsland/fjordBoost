@@ -7,6 +7,7 @@
   --color-support: #13315c;
   --color-neutral: #eef4ed;
   --breakpoint-sm: initial;
+  --breakpoint-lg: 80rem;
   --breakpoint-xl: initial;
   --breakpoint-2xl: initial;
 }
