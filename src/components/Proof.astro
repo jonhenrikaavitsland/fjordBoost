@@ -14,7 +14,7 @@ const testimonials = [
     company: 'TechFlow Solutions',
     role: 'Marketing Director',
     content:
-      'FjordBoost transformed our online presence. We saw a 200% increase in organic traffic within 6 months and our conversion rates doubled.',
+      'FjordBoost empowered us to unlock 200% more organic traffic within six months — and our conversion rates doubled. A truly transformative partnership.',
     rating: 5,
   },
   {
@@ -22,7 +22,7 @@ const testimonials = [
     company: 'Nordic Retail',
     role: 'CEO',
     content:
-      'Their local SEO expertise helped us dominate our market. We now rank #1 for all our key local searches and our store visits increased by 85%.',
+      'Thanks to FjordBoost’s local SEO expertise, we now dominate our regional market. Ranking #1 for key searches boosted store visits by 85% and built long-term visibility.',
     rating: 5,
   },
   {
@@ -30,7 +30,7 @@ const testimonials = [
     company: 'Creative Agency Co',
     role: 'Founder',
     content:
-      'The team at FjordBoost is incredibly knowledgeable and responsive. Their strategic approach to SEO has been a game-changer for our business.',
+      'The FjordBoost team combines expertise with responsiveness. Their strategic, data-driven SEO approach has been a genuine game-changer for our business growth',
     rating: 5,
   },
 ];
@@ -42,7 +42,7 @@ const testimonials = [
   >
     <div class='text-center flex flex-col gap-4'>
       <h2 class='uppercase text-sm font-semibold text-secondary/85'>
-        trusted by leading companies
+        trusted by innovative businesses across norway
       </h2>
       <div
         class='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 text-lg font-semibold text-secondary/85'
@@ -56,51 +56,54 @@ const testimonials = [
     </div>
     <div class='flex flex-col mt-20 text-center gap-1'>
       <h2 class='capitalize text-3xl md:text-4xl font-bold'>
-        what our clients say
+        client success stories
       </h2>
       <p class='text-lg max-w-2xl mx-auto text-secondary/85'>
-        Don't just take our word for it. Here's what business owners
-        say about working with FjordBoost.
+        At FjordBoost we build lasting partnerships that deliver
+        measurable growth. Here's how our clients describe the
+        impact of working with Norway's premium <span
+          class='uppercase'>seo</span
+        > and digital optimisation partner.
       </p>
-    </div>
-    <div class='grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-20'>
-      {
-        testimonials.map((testimonial) => (
-          <section class='bg-white p-5 rounded-lg border border-secondary/40 flex flex-col gap-1'>
-            <div class='flex'>
-              {Array.from({ length: testimonial.rating }).map(
-                (_) => (
-                  <img
-                    src='/images/icons/star.svg'
-                    alt='rating'
-                    class='h-4'
-                  />
-                )
-              )}
-            </div>
-            <div>
-              <img
-                src='images/icons/quotation.svg'
-                alt='quotation'
-                class='h-8'
-              />
-            </div>
-            <div class='flex flex-col gap-1.5'>
-              <p class='text-secondary/70 italic'>
-                &#8220;{testimonial.content}&#8221;
-              </p>
-              <div>
-                <span class='font-semibold'>
-                  {testimonial.name}
-                </span>
-                <p class='text-sm text-secondary/70'>
-                  {testimonial.role} at {testimonial.company}
-                </p>
+      <div class='grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-20'>
+        {
+          testimonials.map((testimonial) => (
+            <section class='bg-white p-5 rounded-lg border border-secondary/40 flex flex-col gap-1'>
+              <div class='flex'>
+                {Array.from({ length: testimonial.rating }).map(
+                  (_) => (
+                    <img
+                      src='/images/icons/star.svg'
+                      alt='rating'
+                      class='h-4'
+                    />
+                  )
+                )}
               </div>
-            </div>
-          </section>
-        ))
-      }
+              <div>
+                <img
+                  src='images/icons/quotation.svg'
+                  alt='quotation'
+                  class='h-8'
+                />
+              </div>
+              <div class='flex flex-col gap-1.5'>
+                <p class='text-secondary/70 italic'>
+                  &#8220;{testimonial.content}&#8221;
+                </p>
+                <div>
+                  <span class='font-semibold'>
+                    {testimonial.name}
+                  </span>
+                  <p class='text-sm text-secondary/70'>
+                    {testimonial.role} at {testimonial.company}
+                  </p>
+                </div>
+              </div>
+            </section>
+          ))
+        }
+      </div>
     </div>
   </section>
 </div>
