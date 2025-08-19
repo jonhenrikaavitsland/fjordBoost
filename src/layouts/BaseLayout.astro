@@ -21,26 +21,71 @@ const { title, description } = Astro.props;
     <meta name='generator' content={Astro.generator} />
     <title>{title} | FjordBoost</title>
     <meta name='description' content={description} />
-    <!-- Matomo -->
+
+    <!-- Matomo (with CookieYes consent) -->
     <script>
+      // Matomo queue
       var _paq = (window._paq = window._paq || []);
-      /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-      _paq.push(['trackPageView']);
+
+      // Require consent BEFORE any tracking calls
+      _paq.push(['requireConsent']);
+
+      // Normal tracker calls (queued until matomo.js loads)
       _paq.push(['enableLinkTracking']);
+      _paq.push(['trackPageView']);
+
+      // Load Matomo
       (function () {
         var u = 'https://fjordboost.matomo.cloud/';
         _paq.push(['setTrackerUrl', u + 'matomo.php']);
         _paq.push(['setSiteId', '1']);
+
         var d = document,
           g = d.createElement('script'),
           s = d.getElementsByTagName('script')[0];
         g.async = true;
         g.src =
           'https://cdn.matomo.cloud/fjordboost.matomo.cloud/matomo.js';
-        s.parentNode?.insertBefore(g, s);
+        s.parentNode && s.parentNode.insertBefore(g, s);
       })();
+
+      interface CookieYesConsentDetail {
+        accepted: string[];
+        // add other fields if CookieYes provides them
+      }
+
+      // CookieYes → Matomo consent bridge
+      function consentSet(data: CookieYesConsentDetail) {
+        if (
+          data &&
+          Array.isArray(data.accepted) &&
+          data.accepted.includes('analytics')
+        ) {
+          // Persist consent + apply immediately
+          _paq.push(['rememberConsentGiven']);
+          _paq.push(['setConsentGiven']);
+        } else {
+          _paq.push(['forgetConsentGiven']);
+        }
+      }
+
+      // Listen for updates from CookieYes
+      document.addEventListener('cookieyes_consent_update', ((
+        event: CustomEvent<CookieYesConsentDetail>
+      ) => {
+        const data = event.detail;
+        consentSet(data);
+      }) as EventListener);
+
+      // Optional: apply current consent state on load if CookieYes exposes it
+      // (won't hurt if it's not available)
+      document.addEventListener('DOMContentLoaded', function () {
+        if (window.cookieyes && window.cookieyes.consent) {
+          consentSet(window.cookieyes.consent);
+        }
+      });
     </script>
-    <!-- End Matomo Code -->
+    <!-- End Matomo -->
   </head>
   <body class='flex flex-col min-h-screen scroll-smooth'>
     <Header />
