@@ -3,7 +3,7 @@ import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import '../styles/global.css';
 
-const { title, description } = Astro.props;
+const { title, description, crawl } = Astro.props;
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site).href;
 ---
 
@@ -23,6 +23,7 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site).href;
     <link rel='canonical' href={canonicalUrl} />
     <title>{title} | FjordBoost</title>
     <meta name='description' content={description} />
+    {crawl && <meta name='robots' content='noindex, follow' />}
 
     <!-- Matomo (with CookieYes consent) -->
     <script>

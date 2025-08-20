@@ -10,9 +10,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 const title = 'Home';
 const description =
   'FjordBoost is the premium partner in digital optimisation. Based in Norway, we empower startups and SMEs with tailored SEO, technical audits, and website optimisation — driving measurable growth, higher rankings, and lasting digital success.';
+const crawl = false;
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout title={title} description={description} crawl={crawl}>
   <Hero />
   <Services />
   <About />

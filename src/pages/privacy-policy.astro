@@ -1,8 +1,13 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = 'Privacy Policy';
+const description =
+  'Read our Privacy Policy to learn how we collect, use, and protect your personal data, and understand your rights regarding your information.';
+const crawl = true;
 ---
 
-<BaseLayout>
+<BaseLayout title={title} description={description} crawl={crawl}>
   <div class='lg:container lg:mx-auto'>
     <section class='px-5 py-16'>
       <h1 class='privacy-policy-h1 text-3xl font-semibold'>

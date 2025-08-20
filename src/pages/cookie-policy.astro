@@ -1,8 +1,13 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = 'Cookie Policy';
+const description =
+  'Read our Cookie Policy to understand how we use cookies and similar technologies, why we use them, and how you can manage your preferences.';
+const crawl = true;
 ---
 
-<BaseLayout>
+<BaseLayout title={title} description={description} crawl={crawl}>
   <div class='lg:container lg:mx-auto'>
     <section class='px-5 py-16'>
       <style>
