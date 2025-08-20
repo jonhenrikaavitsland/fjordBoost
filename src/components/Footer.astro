@@ -1,25 +1,25 @@
 ---
 const footerLinks = {
   services: [
-    { label: 'Keyword Research & Strategy', href: '#' },
-    { label: 'On-Page Optimisation', href: '#' },
-    { label: 'Analytics & Reporting', href: '#' },
-    { label: 'Local SEO for Norway', href: '#' },
-    { label: 'SEO-Driven Content Marketing', href: '#' },
-    { label: 'Technical SEO', href: '#' },
+    { label: 'Keyword Research & Strategy', href: '#services' },
+    { label: 'On-Page Optimisation', href: '#services' },
+    { label: 'Analytics & Reporting', href: '#services' },
+    { label: 'Local SEO for Norway', href: '#services' },
+    { label: 'SEO-Driven Content Marketing', href: '#services' },
+    { label: 'Technical SEO', href: '#services' },
   ],
   company: [
     { label: 'About FjordBoost', href: '#about' },
-    { label: 'Our Team', href: '#' },
-    { label: 'Join Our Team', href: '#' },
+    { label: 'Our Team', href: '#about' },
+    { label: 'Join Our Team', href: '#contact' },
     { label: 'Contact', href: '#contact' },
-    { label: 'Blog', href: '#' },
+    { label: 'Blog', href: '#contact' },
   ],
   resources: [
     { label: 'The FjordBoost SEO Guide', href: '#newsletter' },
     { label: 'Client Success Stories', href: '#testimonials' },
-    { label: 'Free SEO Tools', href: '#' },
-    { label: 'Expert SEO Webinars', href: '#' },
+    { label: 'Free SEO Tools', href: '#newsletter' },
+    { label: 'Expert SEO Webinars', href: '#newsletter' },
     { label: 'Client Support', href: '#contact' },
   ],
 };
@@ -27,18 +27,22 @@ const footerLinks = {
 const socialLinks = [
   {
     icon: '/images/icons/facebook.svg',
-    href: '#',
+    href: 'https://www.facebook.com/',
     label: 'Facebook',
   },
-  { icon: '/images/icons/x.svg', href: '#', label: 'Twitter' },
+  {
+    icon: '/images/icons/x.svg',
+    href: 'https://x.com/',
+    label: 'Twitter',
+  },
   {
     icon: '/images/icons/linkedin.svg',
-    href: '#',
+    href: 'https://www.linkedin.com/',
     label: 'LinkedIn',
   },
   {
     icon: '/images/icons/instagram.svg',
-    href: '#',
+    href: 'https://www.instagram.com/',
     label: 'Instagram',
   },
 ];
@@ -60,7 +64,11 @@ const socialLinks = [
         {
           socialLinks.map((link) => (
             <li>
-              <a href={link.href} class='hover:animate-pulse'>
+              <a
+                href={link.href}
+                class='hover:animate-pulse'
+                target='_blank'
+              >
                 <span class='sr-only'>{link.label}</span>
                 <img src={link.icon} alt='' class='h-5 w-5' />
               </a>
