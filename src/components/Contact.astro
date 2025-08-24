@@ -29,7 +29,7 @@ const contactInfo = [
 ];
 ---
 
-<div class='bg-white text-secondary' id='contact'>
+<div class='bg-white text-secondary' id='contact' tabindex='-1'>
   <section
     class='flex flex-col gap-16 lg:container lg:mx-auto py-16 md:py-24 lg:py-32 px-5'
   >
@@ -47,65 +47,6 @@ const contactInfo = [
       </p>
     </div>
     <div class='grid md:grid-cols-2 gap-12'>
-      <!-- <div class='flex-grow-1'>
-        <form
-          class='flex flex-col gap-4 border border-accent/60 p-5 rounded-xl'
-        >
-          <p class='leading-none'>Send us a message</p>
-          <div class='flex flex-col lg:flex-row gap-4'>
-            <div class='flex flex-col gap-2 flex-grow-1'>
-              <label for='name' class='text-sm font-semibold'
-                >Name *</label
-              >
-              <input
-                type='text'
-                id='name'
-                class='bg-accent/40 ps-2 py-1 pe-1 rounded-lg'
-                required
-              />
-            </div>
-            <div class='flex flex-col gap-2 flex-grow-1'>
-              <label
-                for='email-contact'
-                class='text-sm font-semibold'>Email *</label
-              >
-              <input
-                type='text'
-                id='email-contact'
-                class='bg-accent/40 ps-2 py-1 pe-1 rounded-lg'
-                required
-              />
-            </div>
-          </div>
-          <div class='flex flex-col gap-2'>
-            <label for='company' class='text-sm font-semibold'
-              >Company</label
-            >
-            <input
-              type='text'
-              id='company'
-              class='bg-accent/40 ps-2 py-1 pe-1 rounded-lg'
-            />
-          </div>
-          <div class='flex flex-col gap-2'>
-            <label for='message' class='text-sm font-semibold'
-              >Message *</label
-            >
-            <textarea
-              name='message'
-              id='message'
-              rows={4}
-              class='bg-accent/40 p-2 rounded-lg'
-              placeholder='Tell us about your SEO goals and challenges...'
-              required></textarea>
-          </div>
-          <button
-            type='submit'
-            class='bg-secondary text-white w-full rounded-lg py-2 px-4 cursor-pointer font-semibold capitalize hover:bg-secondary/90'
-            >send message</button
-          >
-        </form>
-      </div> -->
       <ContactForm client:visible />
       <section class='flex flex-col gap-8 flex-grow-1'>
         <div class='flex flex-col gap-4'>

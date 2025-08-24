@@ -5,6 +5,7 @@ import NewsletterSignupForm from './NewsletterSignupForm';
 <div
   class='bg-primary bg-[url(/images/assets/stacked-blue-reward-pins.jpg)] bg-blend-overlay bg-no-repeat bg-cover text-white'
   id='newsletter'
+  tabindex='-1'
 >
   <section
     class='lg:container lg:mx-auto py-16 md:py-24 lg:py-32 px-5 text-center'
@@ -32,28 +33,6 @@ import NewsletterSignupForm from './NewsletterSignupForm';
         </div>
       </div>
       <div class='flex flex-col gap-12'>
-        <!-- <div class='flex flex-col gap-3'>
-          <form class='w-full max-w-md mx-auto'>
-            <div class='flex flex-col md:flex-row gap-3'>
-              <label for='email' class='sr-only'>email</label>
-              <input
-                type='email'
-                id='email'
-                placeholder='Enter your email address'
-                class='bg-white/10 border border-white/20 grow p-2 rounded-lg'
-              />
-              <button
-                type='submit'
-                class='bg-green-400 hover:bg-green-500 text-support hover:text-white transition-colors py-2 px-4 cursor-pointer rounded-lg font-semibold capitalize'
-                >subscribe</button
-              >
-            </div>
-          </form>
-          <p class='text-xs'>
-            No spam. Unsubscribe anytime. Your data is secure and
-            respected.
-          </p>
-        </div> -->
         <NewsletterSignupForm client:visible />
         <div class='grid md:grid-cols-3 gap-8 capitalize'>
           <div class='flex flex-col gap-2'>
