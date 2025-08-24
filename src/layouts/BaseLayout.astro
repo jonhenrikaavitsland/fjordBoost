@@ -99,5 +99,28 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site).href;
     <Footer />
   </body>
 
+  <script defer>
+    const focusHash = () => {
+      const id = location.hash.slice(1);
+      if (!id) return;
+      const el = document.getElementById(id);
+      if (el) {
+        el.setAttribute('tabindex', '-1');
+        el.focus();
+      }
+    };
+    window.addEventListener('hashchange', focusHash);
+    window.addEventListener('DOMContentLoaded', focusHash);
+  </script>
+  <script defer>
+    document.addEventListener('DOMContentLoaded', () => {
+      const nav = document.querySelector('header details');
+      if (!nav) return;
+      nav.addEventListener('click', (e) => {
+        const a = e.target.closest('a[href]');
+        if (a) nav.open = false;
+      });
+    });
+  </script>
 
 </html>
