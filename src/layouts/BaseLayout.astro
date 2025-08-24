@@ -90,11 +90,14 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site).href;
     </script>
     <!-- End Matomo -->
   </head>
+  <a href='#main' class='sr-only'> Skip to main content </a>
   <body class='flex flex-col min-h-screen scroll-smooth'>
     <Header />
-    <main class='flex-grow'>
+    <main class='flex-grow' id='main'>
       <slot />
     </main>
     <Footer />
   </body>
+
+
 </html>
