@@ -74,7 +74,7 @@ const navLinks = [
               <li>
                 <a
                   href={navLink.link}
-                  class='mobile-nav-link block px-2 py-2.5 leading-none hover:underline hover:underline-offset-4'
+                  class='block px-2 py-2.5 leading-none hover:underline hover:underline-offset-4'
                 >
                   {navLink.label}
                 </a>
@@ -117,21 +117,3 @@ const navLinks = [
     }
   }
 </style>
-
-<!-- ✅ Defer script so it won’t block rendering -->
-<script defer>
-  document.addEventListener('DOMContentLoaded', () => {
-    const details = document.querySelector('header details');
-    const links = document.querySelectorAll(
-      'header .mobile-nav-link'
-    );
-
-    links.forEach((link) => {
-      link.addEventListener('click', () => {
-        if (details.hasAttribute('open')) {
-          remove.setAttribute('open');
-        }
-      });
-    });
-  });
-</script>
