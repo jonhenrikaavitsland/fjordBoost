@@ -49,17 +49,22 @@ const navLinks = [
     </nav>
 
     <!-- Mobile menu toggle -->
-    <details class='flex my-auto md:hidden'>
+    <details
+      class='flex my-auto md:hidden'
+      aria-label='Toggle navigation'
+    >
       <summary class='flex justify-end cursor-pointer p-1.25'>
         <img
           src='/images/icons/menu-open.svg'
           alt='Open menu'
           class='open-icon'
+          aria-hidden='true'
         />
         <img
           src='/images/icons/menu-close.svg'
           alt='Close menu'
           class='close-icon hidden'
+          aria-hidden='true'
         />
       </summary>
 
