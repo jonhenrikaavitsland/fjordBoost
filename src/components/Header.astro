@@ -117,3 +117,21 @@ const navLinks = [
     }
   }
 </style>
+
+<!-- ✅ Defer script so it won’t block rendering -->
+<script defer>
+  document.addEventListener('DOMContentLoaded', () => {
+    const details = document.querySelector('header details');
+    const links = document.querySelectorAll(
+      'header .mobile-nav-link'
+    );
+
+    links.forEach((link) => {
+      link.addEventListener('click', () => {
+        if (details.hasAttribute('open')) {
+          details.removeAttribute('open');
+        }
+      });
+    });
+  });
+</script>
