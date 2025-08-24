@@ -74,7 +74,7 @@ const navLinks = [
               <li>
                 <a
                   href={navLink.link}
-                  class='block px-2 py-2.5 leading-none hover:underline hover:underline-offset-4'
+                  class='mobile-nav-link block px-2 py-2.5 leading-none hover:underline hover:underline-offset-4'
                 >
                   {navLink.label}
                 </a>
@@ -129,7 +129,7 @@ const navLinks = [
     links.forEach((link) => {
       link.addEventListener('click', () => {
         if (details.hasAttribute('open')) {
-          details.removeAttribute('open');
+          remove.setAttribute('open');
         }
       });
     });
